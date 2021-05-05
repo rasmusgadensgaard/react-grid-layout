@@ -1,5 +1,6 @@
 // @noflow
 const webpack = require("webpack");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // Builds bundle usable <script>. Includes RGL and all deps, excluding React.
 module.exports = {
@@ -46,6 +47,7 @@ module.exports = {
     ]
   },
   plugins: [
+	new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("production")

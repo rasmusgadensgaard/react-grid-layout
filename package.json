@@ -1,18 +1,19 @@
 {
   "name": "react-grid-layout",
-  "version": "1.2.4",
+  "version": "1.2.4-capana",
   "description": "A draggable and resizable grid layout with responsive breakpoints, for React.",
   "main": "index.js",
   "scripts": {
-    "lint": "make lint",
-    "test": "make test",
-    "build": "make build",
-    "build-example": "make build-example",
-    "view-example": "make view-example",
-    "dev": "make dev",
-    "prepublishOnly": "make build",
+    "build": "concurrently \"npm run webpack\"",
+    "webpack": "webpack --mode production",
+    "build-example": "MinGW32-make build-example",
+    "dev": "MinGW32-make dev",
+    "flow": "flow",
+    "lint": "MinGW32-make lint",
+    "prepublishOnly": "concurrently \"npm run webpack\"",
+    "test": "MinGW32-make test",
     "validate": "npm ls",
-    "flow": "flow"
+    "view-example": "MinGW32-make view-example"
   },
   "repository": {
     "type": "git",
@@ -54,6 +55,7 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "babel-plugin-preval": "^5.0.0",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.1.1",
     "ejs": "^3.1.6",
     "enzyme": "^3.11.0",
@@ -87,7 +89,7 @@
     "react-dom": ">= 16.3.0"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "http://npm.capana.dk/"
   },
   "jest": {
     "setupFilesAfterEnv": [
